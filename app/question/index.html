@@ -1,0 +1,29 @@
+<h1>My questions</h1>
+<div class="form-container">
+    <form method="post">
+        <div class="form-group">
+            <label for="question">Your new question</label>
+            <input type="text" id="question" class="form-control" ng-model="vm.user_question" required />
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" ng-click="vm.saveQuestion()">Save</button>
+            <!-- <button class="btn btn-danger" ng-click="vm.deleteUser()">Delete</button> -->
+        </div>
+    </form>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Action</th>
+                
+              </tr>
+            </thead>
+            <tbody ng-repeat="x in vm.lista_back track by x._id">
+              <tr>
+                <td>{{x.question}}</td>  
+                <td scope="col"><button class="btn btn-primary" ng-click="vm.DeleteQuestion(x._id)">Delete </button><td>
+              </tr>
+            </tbody>
+          </table>
+    
+</div>

@@ -24,6 +24,13 @@
                 controller: 'Account.IndexController',
                 controllerAs: 'vm',
                 data: { activeTab: 'account' }
+            })
+            .state('question', {
+                url: '/question',
+                templateUrl: 'question/index.html',
+                controller: 'Question.IndexController',
+                controllerAs: 'vm',
+                data: { activeTab: 'question' }
             });
     }
 
@@ -31,6 +38,8 @@
         // get JWT token from server
         $.get('/app/token', function (token) {
             // add JWT token as default auth header
+            console.log(token);
+            
             $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
             // update active tab on state change
             $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
